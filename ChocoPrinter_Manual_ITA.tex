@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{titling}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage[italian]{babel}
+\usepackage{subcaption}
+
+\setlength\parindent{0pt}
+\setlength{\parskip}{1em}
+\setlength{\droptitle}{-2cm}
+
+\title{Istruzioni d'uso ChocoPrinter}
+\author{Università della Svizzera Italiana}
+\date{Versione \today}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Setup}
+
+	\subsection{Download}\label{sec:download}
+
+		Sono necessari i seguenti software:
+
+		- Repetier-Host, \url{https://www.repetier.com/download-now}
+
+		- Configurazioni per slicer, \url{https://3dprint.elettronicain.it/wp-content/uploads/2015/10/Configurazione-Repetier.zip}
+
+		Per aggiornare il firmware della stampante (opzionale):
+
+		- Arduino IDE 1.0.6, \url{https://www.arduino.cc/en/Main/OldSoftwareReleases}
+
+		- Firmware stampante, \url{TODO}
+		
+		
+	\subsection{Configurazione}
+	
+		Installare il software Repetier-Host sulla propria macchina ed avviarlo. Cliccare sulla scheda \texttt{Slicer} e in seguito sul pulsante \texttt{Configure}. Cliccare su \texttt{Cancel} per chiudere la procedura guidata e dal menu \texttt{File} scegliere \texttt{Load Config}. Scegliere il file \texttt{Slic3r\_config\_bundle.ini} sotto \texttt{Configurazione-Repetier/3DRAG Choco/Config Slic3r\_CHOCO} dal pacchetto di configurazioni scaricato.\\
+		Cliccare sull'ingranaggio accanto al campo \texttt{Print settings}, poi sull'icona di salvataggio accanto al nome del profilo, salvarlo con un nome adatto (p.es. "ChocoPrinter") e confermare con \texttt{Ok}. Chiudere la scheda e ripetere l'operazione con i campi \texttt{Filament} e \texttt{Printer}.\\
+		Al termine, chiudere la finestra \texttt{Slic3r} e scegliere i nuovi profili appena creati dal pannello \texttt{Slic3r} di Repetier-Host.
+		
+		//TODO config stampante?
+
+
+\section{Stampa}
+
+1) Far partire il SW Repetier-Host
+
+2) Accendere la stampante
+
+3) Collegarsi alla stampante (configurarla se non già fatto)
+
+4) Inserire il cioccolato nella siringa
+
+5) Inserire l'ago nella siringa e poi infilare la siringa nel tondino d'alluminio
+
+6) Inserire la siringa con l'ago nel tondino d'alluminio e posizionare la siringa con il tondino nel cilindro della stampante
+
+7) Se necessario alzare il supporto, cliccando su Retract, per inserire correttamente la siringa
+
+8) Scaldare il cioccolato a 30$^{\circ}$C. All'inizio, se la temperatura supera i 33$^{\circ}$C, spegnere il riscaldamento. Mantenere la temperatura tra i 30 e 33 gradi
+
+9) Attendere che il cioccolato esca dalla siringa
+
+10) Cliccare su Print Panel e posizionare la stampante a "Home All"
+
+11) Cliccare su Object Placement e scegliere l'oggetto (file *.stl) da stampare
+
+12) Modificare la dimensione dell'oggetto se necessario, modificando il numero del campo "Scale"
+
+13) Cliccare su Slicer e selezionare "Slice with Slic3r”
+
+14) Per stampare cliccare su Run
+
+
+\section{Aggiornamento del firmware}
+
+	Nota: questa procedura richiede una versione 1.0.x di Arduino IDE, che non è compatibile con MacOS da High Sierra 10.13.4 in avanti.
+
+	Scaricare il firmware appropriato (versione 3Drag Choco - LCD xxx, controller verde o nero) dal sito indicato nella sezione \ref{sec:download}.\\
+	
+	\textbf{IMPORTANTE}: scegliere la versione corretta! Caricare un firmware sbagliato potrebbe rendere la stampante inutilizzabile!\\
+	
+	Estrarre il pacchetto del firmware ed aprire il file \texttt{Marlin.ino} nella cartella \texttt{Marlin}. Dal menu \texttt{Sketch > Import Library...} scegliere \texttt{Add Library...} e selezionare la cartella	 \texttt{libraries/U8glib} nella cartella scaricata in precedenza.
+	Dal menu \texttt{Tools > Board} selezionare \texttt{Arduino Mega 2560 or Mega ADK} e dal menu \texttt{Tools > Serial Port} selezionare la porta COM associata alla stampante. Verificare sulla scheda della stampante che il jumper JPROG sia inserito. Cliccare sul secondo pulsante da sinistra (\texttt{Upload}) e attendere il completamento della procedura. 
+	A procedura terminata, scollegare l’alimentazione della stampante o premere il pulsante di reset presente sulla scheda stessa.
+
+\end{document}
