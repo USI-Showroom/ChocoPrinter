@@ -29,22 +29,34 @@
 
 		- Repetier-Host, \url{https://www.repetier.com/download-now}
 
-		- Configurazioni per slicer, \url{https://3dprint.elettronicain.it/wp-content/uploads/2015/10/Configurazione-Repetier.zip}
+		- Configurazioni per slicer, \url{https://github.com/USI-Showroom/ChocoPrinter/blob/config/Slic3r_config_choco.ini}
 
 		Per aggiornare il firmware della stampante (opzionale):
 
 		- Arduino IDE 1.0.6, \url{https://www.arduino.cc/en/Main/OldSoftwareReleases}
 
-		- Firmware stampante, \url{TODO}
+		- Firmware stampante, \url{https://3dprint.elettronicain.it/blog/2012/09/06/software/}
 		
 		
 	\subsection{Configurazione}
 	
-		Installare il software Repetier-Host sulla propria macchina ed avviarlo. Cliccare sulla scheda \texttt{Slicer} e in seguito sul pulsante \texttt{Configure}. Cliccare su \texttt{Cancel} per chiudere la procedura guidata e dal menu \texttt{File} scegliere \texttt{Load Config}. Scegliere il file \texttt{Slic3r\_config\_bundle.ini} sotto \texttt{Configurazione-Repetier/3DRAG Choco/Config Slic3r\_CHOCO} dal pacchetto di configurazioni scaricato.\\
-		Cliccare sull'ingranaggio accanto al campo \texttt{Print settings}, poi sull'icona di salvataggio accanto al nome del profilo, salvarlo con un nome adatto (p.es. "ChocoPrinter") e confermare con \texttt{Ok}. Chiudere la scheda e ripetere l'operazione con i campi \texttt{Filament} e \texttt{Printer}.\\
-		Al termine, chiudere la finestra \texttt{Slic3r} e scegliere i nuovi profili appena creati dal pannello \texttt{Slic3r} di Repetier-Host.
+		Installare il software Repetier-Host sulla propria macchina ed avviarlo. Cliccare sulla scheda \texttt{Slicer} e in seguito sul pulsante \texttt{Configure}. Cliccare su \texttt{Cancel} per chiudere la procedura guidata e dal menu \texttt{File} scegliere \texttt{Load Config}. Scegliere il file di configurazione (\texttt{Slic3r\_config\_choco.ini}) scaricato in precedenza.\\
+		Cliccare sull'ingranaggio accanto al campo \texttt{Print settings}, poi sull'icona di salvataggio accanto al nome del profilo, salvarlo con il nome desiderato (p.es. "ChocoPrinter") e verificare i seguenti parametri:
 		
-		//TODO config stampante?
+		- Layers and perimeters $>$ Layer Height: 0.7mm\\
+		- Infill $>$ FIll Density: 100\%\\
+		- Speed $>$ Speed for print moves: 20 mm/s\\
+		
+		Se non ci sono errori, confermare con \texttt{Ok}. Chiudere la scheda e ripetere l'operazione con il campo \texttt{Filament}:
+
+		- Filament $>$ Temperature ($^{\circ}$C) $>$ Extruder: 33\\
+		- Filament $>$ Temperature ($^{\circ}$C) $>$ Bed: 0\\
+		- Cooling $>$ Keep fan always on: On\\
+		- Cooling $>$ Fan speed: 100
+		
+		Stessa cosa per il campo \texttt{Printer}. Al termine, chiudere la finestra \texttt{Slic3r} e scegliere i nuovi profili appena creati dal pannello \texttt{Slic3r} di Repetier-Host.\\
+		
+		Dalle icone in alto a destra cliccare su \texttt{Printer settings}; assicurarsi di aver scelto la porta corretta e di aver impostato la \texttt{Baud Rate} a 250000.
 
 
 \section{Stampa}
@@ -82,12 +94,12 @@
 
 	Nota: questa procedura richiede una versione 1.0.x di Arduino IDE, che non è compatibile con MacOS da High Sierra 10.13.4 in avanti.
 
-	Scaricare il firmware appropriato (versione 3Drag Choco - LCD xxx, controller verde o nero) dal sito indicato nella sezione \ref{sec:download}.\\
+	Scaricare il firmware appropriato (versione 3Drag Choco - LCD alfanumerico, controller verde o nero) dal sito indicato nella sezione \ref{sec:download}.\\
 	
 	\textbf{IMPORTANTE}: scegliere la versione corretta! Caricare un firmware sbagliato potrebbe rendere la stampante inutilizzabile!\\
 	
 	Estrarre il pacchetto del firmware ed aprire il file \texttt{Marlin.ino} nella cartella \texttt{Marlin}. Dal menu \texttt{Sketch > Import Library...} scegliere \texttt{Add Library...} e selezionare la cartella	 \texttt{libraries/U8glib} nella cartella scaricata in precedenza.
 	Dal menu \texttt{Tools > Board} selezionare \texttt{Arduino Mega 2560 or Mega ADK} e dal menu \texttt{Tools > Serial Port} selezionare la porta COM associata alla stampante. Verificare sulla scheda della stampante che il jumper JPROG sia inserito. Cliccare sul secondo pulsante da sinistra (\texttt{Upload}) e attendere il completamento della procedura. 
-	A procedura terminata, scollegare l’alimentazione della stampante o premere il pulsante di reset presente sulla scheda stessa.
+	A procedura terminata, scollegare cavo USB e alimentazione della stampante e rimuovere il jumper.
 
 \end{document}
