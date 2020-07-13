@@ -38,7 +38,7 @@
 		- Firmware stampante, \url{https://3dprint.elettronicain.it/blog/2012/09/06/software/}
 		
 		
-	\subsection{Configurazione}
+	\subsection{Configurazione}\label{config}
 	
 		Installare il software Repetier-Host sulla propria macchina ed avviarlo. Cliccare sulla scheda \texttt{Slicer} e in seguito sul pulsante \texttt{Configure}. Cliccare su \texttt{Cancel} per chiudere la procedura guidata e dal menu \texttt{File} scegliere \texttt{Load Config}. Scegliere il file di configurazione (\texttt{Slic3r\_config\_choco.ini}) scaricato in precedenza.\\
 		Cliccare sull'ingranaggio accanto al campo \texttt{Print settings}, poi sull'icona di salvataggio accanto al nome del profilo, salvarlo con il nome desiderato (p.es. "ChocoPrinter") e verificare i seguenti parametri:
@@ -61,34 +61,31 @@
 
 \section{Stampa}
 
-1) Far partire il SW Repetier-Host
+	\begin{enumerate}
+		\item Far partire il software Repetier-Host
+	
+		\item Cliccare su \texttt{Object Placement} e scegliere l'oggetto (file *.stl) da stampare tramite il pulsante \texttt{Add STL file}
+	
+		\item Modificare la dimensione dell'oggetto se necessario, modificando il numero del campo \texttt{Scale}
 
-2) Accendere la stampante
+		\item Cliccare su \texttt{Slice with Slic3r}
 
-3) Collegarsi alla stampante (configurarla se non già fatto)
+		\item Accendere la stampante
 
-4) Inserire il cioccolato nella siringa
+		\item Collegarsi alla stampante tramite il cavo USB. Assicurarsi di avere configurato il software come descritto al punto \ref{config}
 
-5) Inserire l'ago nella siringa e poi infilare la siringa nel tondino d'alluminio
+		\item Inserire il cioccolato nella siringa
+		
+		\item Se necessario alzare il supporto girando la ruota bianca, per poter inserire correttamente la siringa. Qualora il motore dovesse fare resistenza, cliccare su \texttt{Stop Motor} dal pannello \texttt{Print Panel}
 
-6) Inserire la siringa con l'ago nel tondino d'alluminio e posizionare la siringa con il tondino nel cilindro della stampante
+		\item Montare l'ago sulla siringa e poi infilare la siringa nel cilindro della stampante, verificando che il tondino di alluminio sia presente in fondo al cilindro
 
-7) Se necessario alzare il supporto, cliccando su Retract, per inserire correttamente la siringa
+		\item Attendere che il cioccolato esca dalla siringa
 
-8) Scaldare il cioccolato a 30$^{\circ}$C. All'inizio, se la temperatura supera i 33$^{\circ}$C, spegnere il riscaldamento. Mantenere la temperatura tra i 30 e 33 gradi
+		\item Per stampare cliccare su Run
+	\end{enumerate}
 
-9) Attendere che il cioccolato esca dalla siringa
-
-10) Cliccare su Print Panel e posizionare la stampante a "Home All"
-
-11) Cliccare su Object Placement e scegliere l'oggetto (file *.stl) da stampare
-
-12) Modificare la dimensione dell'oggetto se necessario, modificando il numero del campo "Scale"
-
-13) Cliccare su Slicer e selezionare "Slice with Slic3r”
-
-14) Per stampare cliccare su Run
-
+	Durante la stampa verificare periodicamente che il cioccolato stia uscendo dalla siringa. \textbf{NON} lasciare mai la stampante senza sorveglianza!
 
 \section{Aggiornamento del firmware}
 
@@ -98,7 +95,7 @@
 	
 	\textbf{IMPORTANTE}: scegliere la versione corretta! Caricare un firmware sbagliato potrebbe rendere la stampante inutilizzabile!\\
 	
-	Estrarre il pacchetto del firmware ed aprire il file \texttt{Marlin.ino} nella cartella \texttt{Marlin}. Dal menu \texttt{Sketch > Import Library...} scegliere \texttt{Add Library...} e selezionare la cartella	 \texttt{libraries/U8glib} nella cartella scaricata in precedenza.
+	Estrarre il pacchetto del firmware ed aprire il file \texttt{Marlin.ino} nella cartella \texttt{Marlin}. Dal menu \texttt{Sketch > Import Library...} scegliere \texttt{Add Library...} e selezionare la cartella \texttt{libraries/U8glib} nella cartella scaricata in precedenza.
 	Dal menu \texttt{Tools > Board} selezionare \texttt{Arduino Mega 2560 or Mega ADK} e dal menu \texttt{Tools > Serial Port} selezionare la porta COM associata alla stampante. Verificare sulla scheda della stampante che il jumper JPROG sia inserito. Cliccare sul secondo pulsante da sinistra (\texttt{Upload}) e attendere il completamento della procedura. 
 	A procedura terminata, scollegare cavo USB e alimentazione della stampante e rimuovere il jumper.
 
