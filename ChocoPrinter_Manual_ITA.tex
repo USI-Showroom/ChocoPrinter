@@ -29,13 +29,13 @@
 
 		- Repetier-Host, \url{https://www.repetier.com/download-now}
 
-		- Configurazioni per slicer, \url{https://github.com/USI-Showroom/ChocoPrinter/blob/config/Slic3r_config_choco.ini}
+		- Configurazioni per slicer, \url{https://github.com/USI-Showroom/ChocoPrinter/blob/master/config/Slic3r_config_choco.ini}
 
 		Per aggiornare il firmware della stampante (opzionale):
 
 		- Arduino IDE 1.0.6, \url{https://www.arduino.cc/en/Main/OldSoftwareReleases}
 
-		- Firmware stampante, \url{https://3dprint.elettronicain.it/blog/2012/09/06/software/}
+		- Firmware stampante (vedi sotto), \url{https://3dprint.elettronicain.it/blog/2012/09/06/software/}
 		
 		
 	\subsection{Configurazione}\label{config}
@@ -66,7 +66,7 @@
 	
 		\item Cliccare su \texttt{Object Placement} e scegliere l'oggetto (file *.stl) da stampare tramite il pulsante \texttt{Add STL file}
 	
-		\item Modificare la dimensione dell'oggetto se necessario, modificando il numero del campo \texttt{Scale}
+		\item Modificare la dimensione dell'oggetto se necessario, modificando il valore del campo \texttt{Scale}
 
 		\item Cliccare su \texttt{Slice with Slic3r}
 
@@ -74,18 +74,54 @@
 
 		\item Collegarsi alla stampante tramite il cavo USB. Assicurarsi di avere configurato il software come descritto al punto \ref{config}
 
-		\item Inserire il cioccolato nella siringa
+		\item Inserire il cioccolato fuso (preferibilmente di tipo ``Crémant") nella siringa
 		
 		\item Se necessario alzare il supporto girando la ruota bianca, per poter inserire correttamente la siringa. Qualora il motore dovesse fare resistenza, cliccare su \texttt{Stop Motor} dal pannello \texttt{Print Panel}
 
-		\item Montare l'ago sulla siringa e poi infilare la siringa nel cilindro della stampante, verificando che il tondino di alluminio sia presente in fondo al cilindro
+		\item Montare l'ago (2) e il tondino di alluminio (1) sulla siringa (3) e poi infilarla nel cilindro della stampante (4). Assicurarsi che il piatto di vetro (5) sia presente, pulito e ben tenuto dai quattro clip (6) sui lati (vedi immagine sottostante)
 
-		\item Attendere che il cioccolato esca dalla siringa
-
-		\item Per stampare cliccare su Run
+		\item Una volta che il cioccolato esca dalla siringa, cliccare su \texttt{Run} per avviare la stampa
 	\end{enumerate}
 
-	Durante la stampa verificare periodicamente che il cioccolato stia uscendo dalla siringa. \textbf{NON} lasciare mai la stampante senza sorveglianza!
+	Durante la stampa verificare periodicamente che il cioccolato stia uscendo dalla siringa. È possibile mettere in pausa la stampante con il tasto \texttt{Pause} se necessario; dal pannello \texttt{Print Panel} è possibile avanzare o ritrarre lo stantuffo tramite i comandi \texttt{Extrude} e \texttt{Retract}. Non tentare di muovere o far forza su nessuna parte mobile quando la stampante è in pausa!\\
+	
+	\textbf{IMPORTANTE: NON} lasciare \textbf{mai} la stampante senza sorveglianza!\\
+	
+	\begin{figure}[H]
+        \begin{subfigure}{0.5\textwidth}
+                \includegraphics[width=0.9\textwidth]{img/cylinderPieces.jpg}
+                \caption*{I componenti del sistema di stampa: tondino (1), ago (2), siringa (3), cilindro portasiringa (4), piatto di vetro (5), clip (6)}
+        \end{subfigure}
+        \begin{subfigure}{0.5\textwidth}
+                \includegraphics[width=0.9\textwidth]{img/cylinderComplete.jpg}
+                \caption*{La siringa assemblata}
+         \end{subfigure}
+	\end{figure}
+	
+	\begin{figure}[H]
+        \begin{subfigure}{0.5\textwidth}
+                \includegraphics[width=0.9\textwidth]{img/power.jpg}
+                \caption*{I cavi della stampante: alimentazione in rosso\\ e USB in verde}
+        \end{subfigure}
+        \begin{subfigure}{0.5\textwidth}
+                \includegraphics[width=0.9\textwidth]{img/display.jpg}
+                \caption*{Il display a riposo}
+         \end{subfigure}
+	\end{figure}
+	
+	\begin{figure}[H]
+        \begin{subfigure}{0.5\textwidth}
+                \includegraphics[width=0.9\textwidth]{img/extruder.jpg}
+                \caption*{La ruota dentata (freccia) che spinge la siringa}
+        \end{subfigure}
+        \begin{subfigure}{0.5\textwidth}
+                \includegraphics[width=0.9\textwidth]{img/zstop.jpg}
+                \caption*{Il sensore z-stop e la vite per regolarlo (freccia)}
+         \end{subfigure}
+	\end{figure}
+	
+	\newpage
+	
 
 \section{Aggiornamento del firmware}
 
